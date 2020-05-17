@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Hello</h1>
+    <h1 class="jumbotron">KnockIO</h1>
   </div>
 </template>
 

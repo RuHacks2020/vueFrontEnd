@@ -25,8 +25,8 @@ export default {
                     },
                     {
                     id:2,
-                    text:'About',
-                    page:'/About'
+                    text:'Settings',
+                    page:'/Settings'
                     },
                 ]
             }
