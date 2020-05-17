@@ -7,12 +7,12 @@
                 <img src="@/assets/logo.jpg" width="800" length="600" id="stream">
                 <div id="streamOptions">
                     <ul>                
-                        <li><button @click="addItem">Grab Still</button></li>
-                        <li><button>Buzz</button></li>
+                        <li><button @click="addItem(); instUp();">Grab Still</button></li>
                     </ul>
                 </div>
             </section>
         </div>
+        
         <div class="split right">
             <h4>Saved Screenshots</h4>
             <table>
@@ -22,7 +22,7 @@
             </tr>
             <tr v-for="(tableData,k) in tableData" :key="k">
                 <td>{{tableData.datetime}}</td>
-                <td><a href="#">{{tableData.image}}</a></td>
+                <td><a :href="'assets/screenshots/screenshot' + (inst) + '.jpg'">{{tableData.image}}</a></td>
             </tr>
             </table>
         </div>
@@ -30,6 +30,7 @@
 </template>
 
 <script>
+var today = new Date();
 var count=0;
 export default {
     name: 'Home',
@@ -40,19 +41,23 @@ export default {
     data(){
         return {
           tableData: [],
+          inst:0
         }
     },
     methods:{
         addItem(){
             var today = new Date();
-            var screenshot = document.images[0].src;
             if(count<30){
                 this.tableData.push({
                     datetime: today.toLocaleString(),
-                    image: "screenshot " + (count+1),
+                    image: "screenshot" + (count+1),
                 });
             }
             count++
+        },
+        instUp(){
+            this.inst++
+            console.log(this.inst)
         }
     }
 }
